@@ -1,6 +1,6 @@
 const SHA256 = require('crypto-js/sha256');
 
-class Block {
+class HealthBlock {
     constructor(index, timestamp, data, precedingHash = "") {
         this.index = index;
         this.timestamp = timestamp;
@@ -22,14 +22,14 @@ class Block {
     }
 }
 
-class Blockchain {
+class HealthBlockchain {
     constructor() {
         this.blockchain = [this.createGenesisBlock()];
         this.difficulty = 4;
     }
 
     createGenesisBlock() {
-        return new Block(0, "17/01/2022", "Genesis Block", "0");
+        return new HealthBlock(0, "17/01/2022", "Genesis Block", "0");
     }
 
     getLatestBlock() {
@@ -56,9 +56,9 @@ class Blockchain {
 }
 
 //TESTS
-let patientData = new Blockchain;
-patientData.addNewBlock(new Block(1, "16/07/2022", { name: "Ade Okin", weight: "75 kg", sex: "male", genotype: "AA" }));
-patientData.addNewBlock(new Block(2, "17/07/2022", { name: "Esther Obi", weight: "65 kg", sex: "female", genotype: "AS" }));
+let patientData = new HealthBlockchain;
+patientData.addNewBlock(new HealthBlock(1, "16/07/2022", { id: 001, weight: "75 kg", sex: "male", genotype: "AA" }));
+patientData.addNewBlock(new HealthBlock(2, "17/07/2022", { id: 002, weight: "65 kg", sex: "female", genotype: "AS" }));
 console.log(JSON.stringify(patientData, null, 4));
 
 console.log("Is Blockchain valid?" + patientData.checkValidity());
