@@ -1,3 +1,5 @@
-A simple blockchain made for a healthcare facility, that applies and illustrates the core concepts of bloclchain technology built using Node.js.
+A simple blockchain that stores health records, applying and illustrating the core concepts of blockchain technology.
 
-made by :WEB3 WAWF Group 6 
+Built using Node.js.
+
+Built by: **WAWF Group 6** 
