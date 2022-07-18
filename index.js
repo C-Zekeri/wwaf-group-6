@@ -1,5 +1,7 @@
+// initialize crypto-js library
 const SHA256 = require('crypto-js/sha256');
 
+// creating cryptoBlock Classes
 class Block {
     constructor(index, timestamp, data, precedingHash = "") {
         this.index = index;
@@ -9,9 +11,11 @@ class Block {
         this.hash = this.computeHash();
         this.nonce = 0;
     }
+    // updating hash block
     computeHash() {
         return SHA256(this.index + this.timestamp + this.precedingHash + JSON.stringify(this.data) + this.nonce).toString();
     }
+    // adding proof of work to the blockchain
     mineBlock(difficulty) {
         while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")) {
             this.nonce++;
